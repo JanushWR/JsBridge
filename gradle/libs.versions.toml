@@ -1,0 +1,19 @@
+[versions]
+android-gradle = '7.2.0'
+gson = "2.10.1"
+appcompat = "1.4.1"
+kotlin = '2.0.0'
+minSdk = '23'
+compileSdk = '31'
+targetSdk = '31'
+
+
+[libraries]
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-gradle" }
+android-library = { id = 'com.android.library', version.ref = 'android-gradle' }
+kotlin-android = { id = 'org.jetbrains.kotlin.android', version.ref = 'kotlin' }
+kotlin-kapt = { id = 'org.jetbrains.kotlin.kapt', version.ref = 'kotlin' }
