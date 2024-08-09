@@ -58,7 +58,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param handler
 	 *            default handler,handle messages send by js without assigned handler name,
      *            if js message has handler name, it will be handled by named handlers registered by native
@@ -128,8 +128,14 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
 
 	void dispatchMessage(Message m) {
         String messageJson = m.toJson();
+
         //escape special characters for json string
 		messageJson = JSONObject.quote(messageJson);
+		StringBuilder sb = new StringBuilder(messageJson);
+		sb.deleteCharAt(messageJson.length() - 1);
+		sb.deleteCharAt(0);
+		messageJson = sb.toString();
+
         String javascriptCommand = String.format(BridgeUtil.JS_HANDLE_MESSAGE_FROM_JAVA, messageJson);
         if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
             this.loadUrl(javascriptCommand);
@@ -207,7 +213,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
 
 	/**
 	 * register handler,so that javascript can call it
-	 * 
+	 *
 	 * @param handlerName
 	 * @param handler
 	 */
