@@ -15,7 +15,7 @@ android {
         versionCode 1
         versionName version
     }
-    publishing { singleVariant('release') }
+
     lintOptions { // 消除lint警告
         abortOnError false
         checkReleaseBuilds false
