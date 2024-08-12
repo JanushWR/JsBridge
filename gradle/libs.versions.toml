@@ -1,5 +1,5 @@
 [versions]
-android-gradle = "7.4.2"
+android-gradle = "7.2.0"
 gson = "2.11.0"
 appcompat = "1.4.1"
 kotlin = '1.6.0'
