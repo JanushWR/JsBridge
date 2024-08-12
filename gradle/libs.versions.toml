@@ -1,8 +1,8 @@
 [versions]
-android-gradle = '7.2.0'
-gson = "2.10.1"
+android-gradle = "7.4.2"
+gson = "2.11.0"
 appcompat = "1.4.1"
-kotlin = '2.0.0'
+kotlin = '1.6.0'
 minSdk = '23'
 compileSdk = '31'
 targetSdk = '31'

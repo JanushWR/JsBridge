@@ -1,9 +1,6 @@
 package com.github.lzyzsd.jsbridge;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,32 +60,10 @@ public class Message {
     }
 
     public String toJson() {
-        return  new Gson().toJson(this);
-//        JSONObject jsonObject= new JSONObject();
-//        try {
-//            jsonObject.put(CALLBACK_ID_STR, getCallbackId());
-//            jsonObject.put(DATA_STR, getData());
-//            jsonObject.put(HANDLER_NAME_STR, getHandlerName());
-//            jsonObject.put(RESPONSE_DATA_STR, getResponseData());
-//            jsonObject.put(RESPONSE_ID_STR, getResponseId());
-//            String oldSyyle = jsonObject.toString();
-//            String newStyle = new Gson().toJson(this);
-//            Log.d("MyLog", "oldStyle: " + jsonObject.toString());
-//            Log.d("MyLog", "oldStyle: " + newStyle);
-//            Log.d("MyLog", "equal: " + oldSyyle.equals(newStyle));
-//
-//
-//            return jsonObject.toString();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
+        return new Gson().toJson(this);
     }
 
-
     public static List<Message> toArrayList(String jsonStr){
-        String  a = "[{\"handlerName\":\"submitFromWeb\",\"data\":{\"param\":\"123\"},\"callbackId\":\"cb_7_1723131799905\"}]";
-
         List<Message> list = new ArrayList<Message>();
         try {
             JSONArray jsonArray = new JSONArray(jsonStr);
@@ -105,10 +80,6 @@ public class Message {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        List<Message> newJsonList = new Gson().fromJson(jsonStr, new TypeToken<List<Message>>(){}.getType());
-        List<Message> newList = list;
-        Log.d("MyLog", newJsonList.toString());
-
         return list;
     }
 }
