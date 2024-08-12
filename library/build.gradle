@@ -15,7 +15,6 @@ android {
         versionCode 1
         versionName version
     }
-
     lintOptions { // 消除lint警告
         abortOnError false
         checkReleaseBuilds false
@@ -29,6 +28,20 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.lzyzsd'
+                artifactId = 'com.github.lzyzsd'
+                version = '1.0.4.10'
+            }
+        }
     }
 }
 
