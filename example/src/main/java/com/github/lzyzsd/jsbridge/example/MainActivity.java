@@ -16,6 +16,7 @@ import com.github.lzyzsd.jsbridge.BridgeWebView;
 import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.github.lzyzsd.jsbridge.DefaultHandler;
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -30,12 +31,16 @@ public class MainActivity extends Activity implements OnClickListener {
 	ValueCallback<Uri> mUploadMessage;
 
     static class Location {
+		@SerializedName("address")
         String address;
     }
 
     static class User {
+		@SerializedName("name")
         String name;
+		@SerializedName("location")
         Location location;
+		@SerializedName("testStr")
         String testStr;
     }
 

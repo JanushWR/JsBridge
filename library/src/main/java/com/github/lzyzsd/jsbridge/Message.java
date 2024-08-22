@@ -1,6 +1,7 @@
 package com.github.lzyzsd.jsbridge;
 
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,10 +17,15 @@ import java.util.List;
  */
 public class Message {
 
+    @SerializedName("callbackId")
     private String callbackId; //callbackId
+    @SerializedName("responseId")
     private String responseId; //responseId
+    @SerializedName("responseData")
     private String responseData; //responseData
+    @SerializedName("data")
     private String data; //data of message
+    @SerializedName("handlerName")
     private String handlerName; //name of handler
 
     private final static String CALLBACK_ID_STR = "callbackId";
